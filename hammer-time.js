@@ -16,8 +16,8 @@
 	                  ( window.DocumentTouch && document instanceof DocumentTouch );
 	var nativeTouchAction = document.documentElement.style[ "touch-action" ] !== undefined ||
 			                            document.documentElement.style[ "-ms-touch-action" ];
-  // iOS running pages from the homescreen still have the delay
-  var standalone = window.navigator.standalone;
+  // iOS running pages from the homescreen or Cordova apps still have the delay
+  var standalone = window.navigator.standalone || window.cordova;
 
 // If there is native touch action bail the hammer has already dropped
 if ( (nativeTouchAction && !standalone) || !touchevents || !MO ) {
